@@ -1,4 +1,5 @@
 <?php
+session_start();
 
     
     // 1. Get data
@@ -19,15 +20,18 @@
         $count = mysqli_num_rows($result);
 
         if($count == 0) {
-            print_r("You are not registered!");
+            $_SESSION["login_error_msg"] = "No such user";
+            header("Location: ./index.php");
         } else {
 
             $res = mysqli_fetch_assoc($result);
 
             if($password == $res["password"]) {
-                print_r("Login success");
+                unset($_SESSION["login_error_msg"]);
+                header("Location: ./dashboard.php");
             } else {
-                print_r("Wrong password!");
+                $_SESSION["login_error_msg"] = "Wrong password!";
+                header("Location: ./index.php");
             }
         }
 

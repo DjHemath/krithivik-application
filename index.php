@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,6 +22,14 @@
     <h1 align="center">Krithvik Application</h1>
 
     <h3 align="center">Login</h3>
+
+    <?php
+        $res = isset($_SESSION["login_error_msg"]);
+
+        if($res) {
+            print_r($_SESSION["login_error_msg"]);
+        }
+    ?>
 
     <form action="./login.php" method="POST">
         <input name="mobile" placeholder="Mobile"/>
