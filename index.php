@@ -29,7 +29,7 @@
 
     <br />
 
-    <a href="https://www.google.com">Register</a>
+    <a href="./register-form.php">Register</a>
 
 </body>
 </html>
