@@ -35,6 +35,8 @@ session_start();
 
             if($result == 1) {
                 // Success
+
+                $_SESSION["name"] = $name;
                 
                 unset($_SESSION["error_msg"]);
 

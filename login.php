@@ -27,6 +27,8 @@ session_start();
             $res = mysqli_fetch_assoc($result);
 
             if($password == $res["password"]) {
+
+                $_SESSION["name"] = $res["name"];
                 unset($_SESSION["login_error_msg"]);
                 header("Location: ./dashboard.php");
             } else {
